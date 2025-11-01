@@ -1,0 +1,297 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  --bg: #0f1115;
+  --panel: #151923;
+  --text: #e9ecf1;
+  --muted: #aab2c0;
+  --accent: #4ea8ff;
+  --accent-2: #8b5cf6;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
+    sans-serif;
+  color: var(--text);
+  background: radial-gradient(
+      1200px 800px at 10% -10%,
+      rgba(78, 168, 255, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 600px at 110% 10%,
+      rgba(139, 92, 246, 0.12),
+      transparent 50%
+    ),
+    var(--bg);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.site-header,
+.site-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+.site-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: 0.2px;
+}
+.site-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px 40px;
+  width: 100%;
+}
+
+.gallery {
+  margin: 24px 0 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+  padding: 16px 12px 24px;
+  border-radius: var(--radius);
+}
+.gallery__title {
+  margin: 0 0 12px;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 600;
+}
+
+.card {
+  position: relative;
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  user-select: none;
+  content-visibility: auto;
+  contain-intrinsic-size: 260px 220px;
+  opacity: 0;
+  transform: translateY(8px);
+}
+.card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s ease;
+  opacity: 0.001;
+}
+.card__img[data-loaded="true"] {
+  opacity: 1;
+}
+
+.card__title {
+  font-size: 18px;
+  margin: 12px 12px 6px;
+}
+.card__text {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 12px 16px;
+}
+
+.swiper {
+  padding: 8px 0 28px;
+  max-width: 100%;
+  cursor: grab;
+  perspective: 1000px;
+  overflow: visible;
+}
+.swiper:active {
+  cursor: grabbing;
+}
+.swiper-slide {
+  display: flex;
+  min-width: 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, background 0.2s ease;
+  will-change: transform, background;
+  z-index: 10;
+  pointer-events: auto;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.12);
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.swiper-pagination {
+  z-index: 10;
+  pointer-events: auto;
+}
+.swiper-pagination-bullet {
+  opacity: 0.5;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+.swiper-pagination-bullet:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+.swiper-pagination-bullet-active {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .card__img {
+    aspect-ratio: 16/11;
+  }
+  .card__title {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .card__text {
+    font-size: 13px;
+  }
+  .page {
+    padding: 10px 12px 32px;
+  }
+  .swiper {
+    padding: 6px 0 26px;
+  }
+}
+
+.swiper.is-transitioning {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.92;
+  transform: scale(0.995);
+}
+
+.swiper:not(.swiper-initialized) .swiper-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+.swiper:not(.swiper-initialized) .swiper-slide {
+  width: auto !important;
+}
+@media (max-width: 760px) {
+  .swiper:not(.swiper-initialized) .swiper-wrapper {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+.swiper:not(.swiper-initialized) .swiper-button-prev,
+.swiper:not(.swiper-initialized) .swiper-button-next,
+.swiper:not(.swiper-initialized) .swiper-pagination {
+  display: none;
+}
+
+.swiper-button-prev:focus-visible,
+.swiper-button-next:focus-visible,
+.swiper-pagination-bullet:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* слои */
+.swiper-initialized .swiper-slide {
+  position: relative;
+  z-index: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.swiper-initialized .swiper-slide .card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+}
+
+/* управляем hover классом is-hover (вешает JS) */
+.swiper-initialized .swiper-slide.is-hover {
+  z-index: 2000;
+}
+.swiper-initialized .swiper-slide.is-hover .card {
+  transform: translateY(-6px) scale(1.02) rotateX(1.5deg) rotateY(1.5deg);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.45);
+}
+
+/* статический режим */
+.swiper:not(.swiper-initialized) .swiper-slide:hover .card {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.4);
+}
+
+.swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  pointer-events: none !important;
+}
+
+.card[data-badge]::before {
+  content: attr(data-badge);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  color: #0b1020;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

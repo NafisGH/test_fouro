@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тестовое: Несколько слайдеров на Swiper</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Галереи товаров</h1>
+      <p>Демонстрация нескольких независимых слайдеров</p>
+    </header>
+
+    <main class="page">
+      <!-- Слайдер №1 -->
+      <section class="gallery" role="region" aria-labelledby="gallery-1-title">
+        <h2 id="gallery-1-title" class="gallery__title">Подборка 1</h2>
+        <div class="swiper swiper-1" id="swiper-1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-1.jpg"
+                  alt="Фото 1"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 1</h3>
+                <p class="card__text">Краткое описание карточки №1.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.jpg"
+                  alt="Фото 2"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2</h3>
+                <p class="card__text">Описание карточки №2.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-3.jpg"
+                  alt="Фото 3"
+                  class="card__img"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 3</h3>
+                <p class="card__text">Описание карточки №3.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-4.jpg"
+                  alt="Фото 4"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 4</h3>
+                <p class="card__text">Описание карточки №4.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-5.jpg"
+                  alt="Фото 5"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 5</h3>
+                <p class="card__text">Описание карточки №5.</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-6.jpg"
+                  alt="Фото 6"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 6</h3>
+                <p class="card__text">Описание карточки №6.</p>
+              </article>
+            </div>
+          </div>
+          <div class="swiper-pagination" aria-controls="swiper-1"></div>
+          <div class="swiper-button-prev" aria-label="Назад"></div>
+          <div class="swiper-button-next" aria-label="Вперёд"></div>
+        </div>
+      </section>
+
+      <!-- Слайдер №2 -->
+      <section class="gallery" role="region" aria-labelledby="gallery-2-title">
+        <h2 id="gallery-2-title" class="gallery__title">Подборка 2</h2>
+        <div class="swiper swiper-2" id="swiper-2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.1.jpg"
+                  alt="Фото 2.1"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2.1</h3>
+                <p class="card__text">Описание карточки №2.1</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.2.jpg"
+                  alt="Фото 2.2"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2.2</h3>
+                <p class="card__text">Описание карточки №2.2</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.3.jpg"
+                  alt="Фото 2.3"
+                  class="card__img"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2.3</h3>
+                <p class="card__text">Описание карточки №2.3</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.4.jpg"
+                  alt="Фото 2.4"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2.4</h3>
+                <p class="card__text">Описание карточки №2.4</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.5.jpg"
+                  alt="Фото 2.5"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2.5</h3>
+                <p class="card__text">Описание карточки №2.5</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="card">
+                <img
+                  src="/images/slide-2.6.jpg"
+                  alt="Фото 2.6"
+                  class="card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h3 class="card__title">Слайд 2.6</h3>
+                <p class="card__text">Описание карточки №2.6</p>
+              </article>
+            </div>
+          </div>
+          <div class="swiper-pagination" aria-controls="swiper-2"></div>
+          <div class="swiper-button-prev" aria-label="Назад"></div>
+          <div class="swiper-button-next" aria-label="Вперёд"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© 2025 Тестовое задание</small>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
